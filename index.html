@@ -19,7 +19,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"StainlessSteelHinges.com","url":"https://stainlesssteelhinges.com/"}</script>
 
 
-<script src="consent.js"></script>
+<script src="consent.js?v=2"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJNX7LXNTZ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MJNX7LXNTZ');</script>
 <script src="affiliate.js" defer></script>
@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14181c;--ink-soft:#3f464d;--muted:#697079;--faint:#98a0a8;
+  --ink:#14181c;--ink-soft:#3f464d;--muted:#555d66;--faint:#5f6770;
   --accent:#1c5a8f;--accent-dark:#164a77;--accent-tint:#e3ecf4;
   --line:#dfe3e8;--line-soft:#e8ecf0;--paper:#e8ecf0;--surface:#ffffff;--wash:#f2f5f8;
   --serif:'Source Serif 4',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;--mono:'Inter',monospace;
@@ -246,11 +246,26 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 }
 @media(max-width:640px){.foot-cols a{padding:7px 0;margin-bottom:0}.foot-cols>div{margin-bottom:10px}.related li a{padding:15px 0}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.related h3{font-family:var(--sans);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 14px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+.menu-btn{min-width:44px;min-height:44px}
+.skip{position:absolute;left:-9999px;top:0;z-index:10000;background:var(--surface);color:var(--ink);padding:10px 14px;border:2px solid var(--accent);border-radius:8px}
+.skip:focus{left:12px;top:12px}
+table.assay:focus-visible,table.spec:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.content p a:not(.buybtn):not(.btn-primary):not(.btn-ghost),.content li a:not(.buybtn),.content td a,.content dd a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.related li a,.toc a{text-decoration:none}
+.foot-cols h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 12px;font-family:var(--sans);font-weight:700;line-height:1.3}
+
+.page-hero p a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="site"><div class="nav"><a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a><button class="menu-btn" aria-label="Menu">&#8801;</button><nav class="nav-links"><a href="best-stainless-steel-hinges.html">Buying Guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="door-hinge-calculator.html">Tools</a><a href="how-we-research.html">How we research</a></nav></div></header>
+<header class="site"><div class="nav"><a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a><button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#8801;</button><nav class="nav-links" id="site-nav"><a href="best-stainless-steel-hinges.html">Buying Guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="door-hinge-calculator.html">Tools</a><a href="how-we-research.html">How we research</a></nav></div></header>
+<main id="main">
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Independent &middot; spec-first</div>
@@ -286,20 +301,21 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
   </div>
 </div></section>
 
+</main>
 <footer class="site">
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>An independent resource guide to choosing, sizing and fitting stainless steel hinges.</p></div>
       <div class="foot-cols">
-        <div><h4>Guides</h4><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
-        <div><h4>Tools</h4><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
-        <div><h4>About</h4><a href="about.html">About</a><a href="how-we-research.html">How we research</a><a href="affiliate-disclosure.html">Disclosure</a></div>
+        <div><h2>Guides</h2><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
+        <div><h2>Tools</h2><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
+        <div><h2>About</h2><a href="about.html">About</a><a href="how-we-research.html">How we research</a><a href="affiliate-disclosure.html">Disclosure</a></div>
       </div>
     </div>
     <div class="foot-bottom"><span>&copy; 2026 StainlessSteelHinges.com</span><span>Independent publisher. Not a manufacturer or retailer.</span></div>
   </div>
 </footer>
-<script>(function(){var b=document.querySelector('.menu-btn'),n=document.querySelector('.nav-links');if(b&&n)b.addEventListener('click',function(){n.classList.toggle('open');});})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn'),n=document.querySelector('.nav-links');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();</script>
 
 </body>
 </html>

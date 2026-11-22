@@ -13,11 +13,11 @@
     if(choice==="granted"||choice==="denied")return;
     var css=document.createElement("style");
     css.textContent='#ssh-consent{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#16191c;color:#eef0f1;'
-      +'border-top:1px solid #2b3036;padding:15px 20px;font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:14px;line-height:1.5}'
+      +'border-top:1px solid #2b3036;padding:15px 20px;font-family:Inter,system-ui,sans-serif;font-size:14px;line-height:1.5}'
       +'#ssh-consent .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:space-between}'
-      +'#ssh-consent p{margin:0;flex:1 1 320px;color:#c4c9cd}#ssh-consent a{color:#6fa8d6}'
-      +'#ssh-consent .btns{display:flex;gap:10px}#ssh-consent button{font-family:"IBM Plex Mono",monospace;text-transform:uppercase;'
-      +'letter-spacing:.05em;font-size:12px;font-weight:500;border:none;padding:10px 18px;cursor:pointer}'
+      +'#ssh-consent p{margin:0;flex:1 1 320px;color:#c4c9cd}#ssh-consent a{color:#8fc0e6;text-decoration:underline}'
+      +'#ssh-consent .btns{display:flex;gap:10px}#ssh-consent button{font-family:Inter,system-ui,sans-serif;'
+      +'font-size:15px;font-weight:600;border:none;border-radius:8px;min-height:44px;padding:10px 20px;cursor:pointer}'
       +'#ssh-acc{background:#1c5a8f;color:#fff}#ssh-dec{background:transparent;color:#c4c9cd;border:1px solid #3b4046}'
       +'@media(max-width:600px){#ssh-consent .btns{flex:1 1 100%}#ssh-consent button{flex:1}}';
     document.head.appendChild(css);

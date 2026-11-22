@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14181c;--ink-soft:#3f464d;--muted:#697079;--faint:#98a0a8;
+  --ink:#14181c;--ink-soft:#3f464d;--muted:#555d66;--faint:#5f6770;
   --accent:#1c5a8f;--accent-dark:#164a77;--accent-tint:#e3ecf4;
   --line:#dfe3e8;--line-soft:#e8ecf0;--paper:#e8ecf0;--surface:#ffffff;--wash:#f2f5f8;
   --serif:'Source Serif 4',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;--mono:'Inter',monospace;
@@ -225,21 +225,36 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 }
 @media(max-width:640px){.foot-cols a{padding:7px 0;margin-bottom:0}.foot-cols>div{margin-bottom:10px}.related li a{padding:15px 0}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.related h3{font-family:var(--sans);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 14px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+.menu-btn{min-width:44px;min-height:44px}
+.skip{position:absolute;left:-9999px;top:0;z-index:10000;background:var(--surface);color:var(--ink);padding:10px 14px;border:2px solid var(--accent);border-radius:8px}
+.skip:focus{left:12px;top:12px}
+table.assay:focus-visible,table.spec:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.content p a:not(.buybtn):not(.btn-primary):not(.btn-ghost),.content li a:not(.buybtn),.content td a,.content dd a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.related li a,.toc a{text-decoration:none}
+.foot-cols h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 12px;font-family:var(--sans);font-weight:700;line-height:1.3}
+
+.page-hero p a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 </style>
-<script src="consent.js"></script>
+<script src="consent.js?v=2"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJNX7LXNTZ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MJNX7LXNTZ');</script>
 <script src="affiliate.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site">
   <div class="nav">
     <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a>
-    <button class="menu-btn" aria-label="Menu">&#8801;</button>
-    <nav class="nav-links"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="" href="door-hinge-calculator.html">Tools</a><a class="active nav-cta" href="how-we-research.html">How we research</a></nav>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#8801;</button>
+    <nav class="nav-links" id="site-nav"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="" href="door-hinge-calculator.html">Tools</a><a class="active nav-cta" href="how-we-research.html">How we research</a></nav>
   </div>
 </header>
+<main id="main">
 <div class="page-hero">
   <div class="wrap"><div class="crumb"><a href="index.html">Home</a> &rsaquo; <span>About</span></div>
   <div class="wrap"><div class="inner">
@@ -251,23 +266,24 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 <div class="tldr"><p>We're an independent spec-and-buying resource, not a manufacturer, distributor, or reseller. We carry no inventory, take no payment to rank one brand over another, and publish no fake reviewer personas or invented test numbers. Here's exactly how we evaluate what we recommend.</p></div>
 <h2 id="independent-and-not-for-sale">Independent, and not for sale</h2><p>We don't sell hinges and we're not paid by any brand to place its products higher. That independence is the whole point of the site: our advice can stay on the reader's side: confirm the grade, match it to the environment, size it to the door, and pay for the right hardware rather than the biggest markup. Where a brand or retailer disagrees with our read, we keep our read.</p><h2 id="how-we-evaluate-a-hinge">How we evaluate a hinge</h2><p>Every recommendation comes down to matching four things to the job:</p><ul><li><strong>Grade</strong> against environment: 304 for dry and inland, 316 for salt, pool, and coastal exposure, judged by published corrosion behavior of each alloy.</li><li><strong>Type</strong> against the door: butt, <a href="ball-bearing-hinges.html">ball-bearing</a>, continuous, concealed, strap, or weld-on, matched to weight and use.</li><li><strong>Load</strong> against the opening: hinge count and bearing type sized to the door's weight and traffic.</li><li><strong>Fasteners and finish</strong>: <a href="what-screws-for-stainless-hinges.html">matching stainless screws</a> and appropriate finish, because a mismatched fastener undoes a good hinge.</li></ul><h2 id="no-fake-personas-no-fabricated-specs">No fake personas, no fabricated specs</h2><p>We don't invent a fictional "lead tester" or publish made-up torture-test figures to look authoritative. When we cite a product, its grade, size, and features come from the actual listing and manufacturer specification, not from numbers we wish were true. If we haven't verified a detail, we say so or leave it out. Honest positioning is a rule here, not a slogan.</p><h2 id="where-our-expertise-comes-from">Where our expertise comes from</h2><p>We're a research-and-reference resource. Our guidance is grounded in the published material standards and the physics of corrosion and load, not in a claim to run a physical test lab. That means we're transparent about method: we read the specs, the standards, and the failure modes, and we translate them into plain buying advice. We'd rather be accurate and honest about how we know something than overstate it.</p><h2 id="our-sources">Our sources</h2><p>Grade definitions and properties follow the standard AISI/ASTM designations for 304 and <a href="what-is-316-stainless-steel.html">316 stainless</a>; commercial hinge ratings reference the ANSI/BHMA grading system; and product details come from manufacturers' own specifications and current retail listings. Corrosion guidance reflects well-established behavior of austenitic stainless in chloride environments.</p><h2 id="how-the-affiliate-links-work">How the affiliate links work</h2><p>Some links to places you can buy are affiliate links, meaning we may earn a commission if you purchase, at no extra cost to you. That commission never changes which products we recommend or how we rank them; we choose picks first and add links after. Full details are on our affiliate disclosure page.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2><div class="faq"><details><summary>Do you get paid to recommend certain hinges?</summary><div class="ans"><p>No. We're not paid by any manufacturer or retailer to feature or rank a product. We may earn an affiliate commission when you buy through a link, but that doesn't affect our picks. We choose them first, independently.</p></div></details><details><summary>Do you physically test the hinges yourselves?</summary><div class="ans"><p>We're a spec-and-research resource, not a test lab, and we won't pretend otherwise. Our evaluations are based on material standards, manufacturer specifications, and the established science of corrosion and load, and we're transparent about that method.</p></div></details></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you get paid to recommend certain hinges?", "acceptedAnswer": {"@type": "Answer", "text": "No. We're not paid by any manufacturer or retailer to feature or rank a product. We may earn an affiliate commission when you buy through a link, but that doesn't affect our picks \u2014 we choose them first, independently."}}, {"@type": "Question", "name": "Do you physically test the hinges yourselves?", "acceptedAnswer": {"@type": "Answer", "text": "We're a spec-and-research resource, not a test lab, and we won't pretend otherwise. Our evaluations are based on material standards, manufacturer specifications, and the established science of corrosion and load \u2014 and we're transparent about that method."}}]}</script>
-<div class="related"><h4>Related reading</h4><ul><li><a href="about.html">About StainlessSteelHinges.com</a></li><li><a href="affiliate-disclosure.html">Affiliate disclosure</a></li><li><a href="best-stainless-steel-hinges.html">Best Stainless Steel Hinges</a></li></ul></div>
+<div class="related"><h3>Related reading</h3><ul><li><a href="about.html">About StainlessSteelHinges.com</a></li><li><a href="affiliate-disclosure.html">Affiliate disclosure</a></li><li><a href="best-stainless-steel-hinges.html">Best Stainless Steel Hinges</a></li></ul></div>
 </div></div>
 
+</main>
 <footer class="site">
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>An independent resource guide to choosing, sizing and fitting stainless steel hinges.</p></div>
       <div class="foot-cols">
-        <div><h4>Guides</h4><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
-        <div><h4>Tools</h4><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
-        <div><h4>About</h4><a href="about.html">About</a><a href="how-we-research.html">How we research</a><a href="affiliate-disclosure.html">Disclosure</a></div>
+        <div><h2>Guides</h2><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
+        <div><h2>Tools</h2><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
+        <div><h2>About</h2><a href="about.html">About</a><a href="how-we-research.html">How we research</a><a href="affiliate-disclosure.html">Disclosure</a></div>
       </div>
     </div>
     <div class="foot-bottom"><span>&copy; 2026 StainlessSteelHinges.com</span><span>Independent publisher. Not a manufacturer or retailer.</span></div>
   </div>
 </footer>
-<script>(function(){var b=document.querySelector('.menu-btn'),n=document.querySelector('.nav-links');if(b&&n)b.addEventListener('click',function(){n.classList.toggle('open');});})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn'),n=document.querySelector('.nav-links');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();</script>
 
 </body>
 </html>

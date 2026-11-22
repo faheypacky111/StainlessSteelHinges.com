@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#14181c;--ink-soft:#3f464d;--muted:#697079;--faint:#98a0a8;
+  --ink:#14181c;--ink-soft:#3f464d;--muted:#555d66;--faint:#5f6770;
   --accent:#1c5a8f;--accent-dark:#164a77;--accent-tint:#e3ecf4;
   --line:#dfe3e8;--line-soft:#e8ecf0;--paper:#e8ecf0;--surface:#ffffff;--wash:#f2f5f8;
   --serif:'Source Serif 4',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;--mono:'Inter',monospace;
@@ -225,21 +225,36 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 }
 @media(max-width:640px){.foot-cols a{padding:7px 0;margin-bottom:0}.foot-cols>div{margin-bottom:10px}.related li a{padding:15px 0}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.related h3{font-family:var(--sans);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 14px}
+.crumb a{text-decoration:underline;text-underline-offset:2px}
+.menu-btn{min-width:44px;min-height:44px}
+.skip{position:absolute;left:-9999px;top:0;z-index:10000;background:var(--surface);color:var(--ink);padding:10px 14px;border:2px solid var(--accent);border-radius:8px}
+.skip:focus{left:12px;top:12px}
+table.assay:focus-visible,table.spec:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.content p a:not(.buybtn):not(.btn-primary):not(.btn-ghost),.content li a:not(.buybtn),.content td a,.content dd a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+.related li a,.toc a{text-decoration:none}
+.foot-cols h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin:0 0 12px;font-family:var(--sans);font-weight:700;line-height:1.3}
+
+.page-hero p a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 </style>
-<script src="consent.js"></script>
+<script src="consent.js?v=2"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJNX7LXNTZ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MJNX7LXNTZ');</script>
 <script src="affiliate.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site">
   <div class="nav">
     <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a>
-    <button class="menu-btn" aria-label="Menu">&#8801;</button>
-    <nav class="nav-links"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="" href="door-hinge-calculator.html">Tools</a><a class=" nav-cta" href="how-we-research.html">How we research</a></nav>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav">&#8801;</button>
+    <nav class="nav-links" id="site-nav"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="" href="door-hinge-calculator.html">Tools</a><a class=" nav-cta" href="how-we-research.html">How we research</a></nav>
   </div>
 </header>
+<main id="main">
 <div class="page-hero">
   <div class="wrap"><div class="crumb"><a href="index.html">Home</a> &rsaquo; <span>Install & repair</span></div>
   <div class="wrap"><div class="inner">
@@ -251,23 +266,24 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 <div class="tldr"><p>For light surface rust or <a href="can-stainless-steel-rust.html">tea-staining</a> on stainless, a nylon pad with a stainless cleaner or white vinegar usually restores it. For rusted steel hinges, clean, treat, and protect, or replace with stainless. The one rule: never use a steel wire brush on stainless, which re-contaminates the surface.</p></div>
 <h2 id="first-identify-what-you-re-dealing-with">First, identify what you're dealing with</h2><p>On stainless, brown discoloration is usually tea-staining or surface contamination (often from nearby carbon steel), not the hinge itself failing. On plated or bare steel, it's true rust eating the metal. The two need different approaches.</p><h2 id="removing-surface-rust-and-tea-staining-from-stainless">Removing surface rust and tea-staining from stainless</h2><ul><li>Wipe with a stainless cleaner or a 1:1 white vinegar solution and a soft cloth.</li><li>For stubborn spots, use a non-metallic (nylon) pad. Never use steel wool or a wire brush, which embed iron particles that rust.</li><li>Rinse with fresh water and dry. For persistent staining, a stainless passivation product restores the protective layer.</li><li>If it keeps returning, the grade is likely wrong for the environment. Consider 316 near salt.</li></ul><h2 id="rusted-steel-hinges">Rusted steel hinges</h2><ul><li>Remove the hinge if you can. Knock off loose rust with a nylon pad or, for steel only, a wire brush.</li><li>Treat pitting with a rust converter, then prime and paint, or apply a protective oil.</li><li>Badly pitted or seized hinges aren't worth saving. Replace them, ideally with stainless.</li></ul><h2 id="keeping-rust-from-coming-back">Keeping rust from coming back</h2><p>Match the grade to the environment, use matching stainless fasteners (mixed metals cause rust streaks and <a href="stainless-steel-corrosion-guide.html">galvanic corrosion</a>), keep carbon-steel tools away from stainless, and rinse coastal hardware periodically. Prevention is far easier than removal.</p>
 <h2 id="frequently-asked-questions">Frequently asked questions</h2><div class="faq"><details><summary>Why is my stainless hinge rusting?</summary><div class="ans"><p>Usually it's surface contamination from carbon steel (a nearby rusting screw, or grinding dust), tea-staining in salt air, or the wrong grade for the environment. True structural rust on correctly chosen stainless is rare.</p></div></details><details><summary>Can I use steel wool on a stainless hinge?</summary><div class="ans"><p>No. Steel wool and wire brushes leave iron particles embedded in the surface that then rust and look like the stainless is failing. Use a nylon pad and a stainless-safe cleaner instead.</p></div></details></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my stainless hinge rusting?", "acceptedAnswer": {"@type": "Answer", "text": "Usually it's surface contamination from carbon steel (a nearby rusting screw, or grinding dust), tea-staining in salt air, or the wrong grade for the environment. True structural rust on correctly chosen stainless is rare."}}, {"@type": "Question", "name": "Can I use steel wool on a stainless hinge?", "acceptedAnswer": {"@type": "Answer", "text": "No. Steel wool and wire brushes leave iron particles embedded in the surface that then rust and look like the stainless is failing. Use a nylon pad and a stainless-safe cleaner instead."}}]}</script>
-<div class="related"><h4>Related reading</h4><ul><li><a href="can-stainless-steel-rust.html">Can stainless steel rust?</a></li><li><a href="how-to-prevent-hinge-rust.html">How to prevent hinge rust</a></li><li><a href="best-rust-resistant-hinges.html">Best Rust-Resistant Hinges</a></li></ul></div>
+<div class="related"><h3>Related reading</h3><ul><li><a href="can-stainless-steel-rust.html">Can stainless steel rust?</a></li><li><a href="how-to-prevent-hinge-rust.html">How to prevent hinge rust</a></li><li><a href="best-rust-resistant-hinges.html">Best Rust-Resistant Hinges</a></li></ul></div>
 </div></div>
 
+</main>
 <footer class="site">
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>An independent resource guide to choosing, sizing and fitting stainless steel hinges.</p></div>
       <div class="foot-cols">
-        <div><h4>Guides</h4><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
-        <div><h4>Tools</h4><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
-        <div><h4>About</h4><a href="about.html">About</a><a href="how-we-research.html">How we research</a><a href="affiliate-disclosure.html">Disclosure</a></div>
+        <div><h2>Guides</h2><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
+        <div><h2>Tools</h2><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
+        <div><h2>About</h2><a href="about.html">About</a><a href="how-we-research.html">How we research</a><a href="affiliate-disclosure.html">Disclosure</a></div>
       </div>
     </div>
     <div class="foot-bottom"><span>&copy; 2026 StainlessSteelHinges.com</span><span>Independent publisher. Not a manufacturer or retailer.</span></div>
   </div>
 </footer>
-<script>(function(){var b=document.querySelector('.menu-btn'),n=document.querySelector('.nav-links');if(b&&n)b.addEventListener('click',function(){n.classList.toggle('open');});})();</script>
+<script>(function(){var b=document.querySelector('.menu-btn'),n=document.querySelector('.nav-links');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();</script>
 
 </body>
 </html>
