@@ -231,6 +231,10 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 }
 @media(max-width:640px){.foot-cols a{padding:7px 0;margin-bottom:0}.foot-cols>div{margin-bottom:10px}.related li a{padding:15px 0}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.calc-err{display:none;margin:12px 0 0;padding:10px 12px;border-radius:6px;background:#fdecea;color:#8a1c12;font-size:14px;line-height:1.45}
+.calcbox .result:not(.show){display:none}
+.calcbox .calc-btn{min-height:48px;font-size:16px;padding:12px 22px;justify-content:center;touch-action:manipulation}
+@media(max-width:640px){.calcbox .calc-btn{width:100%}}
 </style>
 
 </head>
@@ -238,7 +242,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 
 <header class="site">
   <div class="nav">
-    <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">Spec-first hinge guides</span></a>
+    <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a>
     <button class="menu-btn" aria-label="Menu">&#8801;</button>
     <nav class="nav-links"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="active" href="door-hinge-calculator.html">Tools</a><a class=" nav-cta" href="how-we-research.html">How we research</a></nav>
   </div>
@@ -267,10 +271,11 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
         <div class="hint">Heavy doors may need an extra hinge.</div></div>
     </div>
     <button class="calc-btn" id="go">Calculate</button>
+    <div class="calc-err" id="derr" role="alert"></div>
   </div>
   <div class="result" id="res">
     <div class="lbl">Recommended</div>
-    <div class="big" id="bigout">, </div>
+    <div class="big" id="bigout"></div>
     <div class="detail" id="detout"></div>
   </div>
 </div>
@@ -281,28 +286,35 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 <h2>Frequently asked questions</h2><div class="faq"><details><summary>Why does my heavy door get an extra hinge?</summary><div class="ans"><p>Weight concentrates stress on the top hinge. An extra hinge (or heavier ball-bearing hinges) spreads the load and prevents sag.</p></div></details><details><summary>Is this for commercial doors too?</summary><div class="ans"><p>It's a good starting point, but commercial openings may have cycle-rating and fire-code requirements beyond size and count. Verify the spec.</p></div></details></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my heavy door get an extra hinge?", "acceptedAnswer": {"@type": "Answer", "text": "Weight concentrates stress on the top hinge. An extra hinge (or heavier ball-bearing hinges) spreads the load and prevents sag."}}, {"@type": "Question", "name": "Is this for commercial doors too?", "acceptedAnswer": {"@type": "Answer", "text": "It's a good starting point, but commercial openings may have cycle-rating and fire-code requirements beyond size and count. Verify the spec."}}]}</script><div class="related"><h4>Related tools & guides</h4><ul><li><a href="hinge-load-calculator.html">Hinge load calculator</a></li><li><a href="hinge-sizing-guide.html">Hinge sizing guide</a></li><li><a href="how-many-hinges-do-i-need.html">How many hinges do I need?</a></li></ul></div>
 <script>
 (function(){
+  function $(i){return document.getElementById(i);}
+  function err(m){var e=$('derr');e.textContent=m;e.style.display=m?'block':'none';if(m)$('res').classList.remove('show');}
   function calc(){
-    var h=parseFloat(document.getElementById('dh').value);
-    var w=parseFloat(document.getElementById('dw').value);
-    var t=parseFloat(document.getElementById('dt').value);
-    var wt=parseFloat(document.getElementById('dwt').value);
-    if(!h||!w){alert('Enter at least door height and width.');return;}
-    var count = h<=60?2: h<=90?3: h<=120?4: 4+Math.ceil((h-120)/30);
-    var size;
-    if(t<=1.375){ size = w<=32 ? '3.5\u2033' : '4\u2033'; }
-    else if(t<=1.75){ size = w<=36 ? '4.5\u2033' : '5\u2033 (heavy weight)'; }
-    else { size = '6\u2033'; }
-    var notes=[];
-    var heavy = (!isNaN(wt) && wt>=120) || t>1.75;
-    if(heavy){ count = Math.max(count, h<=90?3:count) + ( (!isNaN(wt)&&wt>=200)?1:0 );
-      notes.push('This is a heavy door \u2014 use <strong>ball-bearing</strong> hinges and at least one long screw per jamb hinge into the framing.'); }
-    if(!isNaN(wt) && wt>=200){ notes.push('At '+wt+' lb, consider an additional hinge beyond the height rule.'); }
-    notes.push('Place the top hinge ~5\u20137\u2033 from the top, the bottom ~10\u201311\u2033 from the bottom, and any others centered between.');
-    document.getElementById('bigout').innerHTML = count+' hinges &nbsp;&middot;&nbsp; '+size;
-    document.getElementById('detout').innerHTML = notes.map(function(n){return '\u2022 '+n;}).join('<br>');
-    document.getElementById('res').classList.add('show');
+    var h=parseFloat($('dh').value),w=parseFloat($('dw').value),t=parseFloat($('dt').value),wt=parseFloat($('dwt').value);
+    if(isNaN(h)||isNaN(w)){err('Enter the door height and width in inches.');return;}
+    if(h<24||h>144){err('Door height should be between 24″ and 144″. A standard door is 80″ tall.');return;}
+    if(w<12||w>60){err('Door width should be between 12″ and 60″. Most doors are 24–36″ wide.');return;}
+    if(!isNaN(wt)&&(wt<=0||wt>1000)){err('Door weight should be between 1 and 1,000 lb, or leave it blank.');return;}
+    err('');
+    var count=h<=60?2:h<=90?3:h<=120?4:4+Math.ceil((h-120)/30);
+    var size,notes=[];
+    if(t<=1.375){ size=w<=32?'3-1/2″':'4″';
+      if(w>36) notes.push('Doors wider than 36″ are usually 1-3/4″ thick. Double-check your door thickness.'); }
+    else if(t<=1.75){ size=w<=36?'4-1/2″':(w<=48?'5″':'6″'); }
+    else { size=w<=42?'5″ heavy‑weight':'6″ heavy‑weight'; }
+    var heavy=(!isNaN(wt)&&wt>=120)||t>1.75;
+    if(heavy){
+      if(h<=90) count=Math.max(count,3);
+      if(!isNaN(wt)&&wt>=200) count+=1;
+      notes.push('This is a heavy door. Use <strong>ball-bearing</strong> hinges and at least one long screw per jamb hinge into the framing.');
+    }
+    if(!isNaN(wt)&&wt>=200) notes.push('At '+wt+' lb, we added one hinge beyond the height rule.');
+    notes.push('Place the top hinge ~5–7″ from the top, the bottom ~10–11″ from the bottom, and any others centered between.');
+    $('bigout').innerHTML=count+' hinges &nbsp;&middot;&nbsp; '+size;
+    $('detout').innerHTML=notes.map(function(n){return '• '+n;}).join('<br>');
+    $('res').classList.add('show');
   }
-  document.getElementById('go').addEventListener('click',calc);
+  $('go').addEventListener('click',calc);
+  ['dh','dw','dwt'].forEach(function(i){$(i).addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();calc();}});});
 })();
 </script>
 
@@ -312,7 +324,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 <footer class="site">
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>Independent, spec-first guides to buying and fitting stainless steel hinges.</p></div>
+      <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>An independent resource guide to choosing, sizing and fitting stainless steel hinges.</p></div>
       <div class="foot-cols">
         <div><h4>Guides</h4><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
         <div><h4>Tools</h4><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>

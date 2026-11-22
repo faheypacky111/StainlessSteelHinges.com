@@ -231,6 +231,10 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 }
 @media(max-width:640px){.foot-cols a{padding:7px 0;margin-bottom:0}.foot-cols>div{margin-bottom:10px}.related li a{padding:15px 0}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.calc-err{display:none;margin:12px 0 0;padding:10px 12px;border-radius:6px;background:#fdecea;color:#8a1c12;font-size:14px;line-height:1.45}
+.calcbox .result:not(.show){display:none}
+.calcbox .calc-btn{min-height:48px;font-size:16px;padding:12px 22px;justify-content:center;touch-action:manipulation}
+@media(max-width:640px){.calcbox .calc-btn{width:100%}}
 </style>
 
 </head>
@@ -238,7 +242,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 
 <header class="site">
   <div class="nav">
-    <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">Spec-first hinge guides</span></a>
+    <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a>
     <button class="menu-btn" aria-label="Menu">&#8801;</button>
     <nav class="nav-links"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="active" href="door-hinge-calculator.html">Tools</a><a class=" nav-cta" href="how-we-research.html">How we research</a></nav>
   </div>
@@ -260,50 +264,59 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
       <div class="field"><label for="lh">Door height (inches)</label><input type="number" id="lh" placeholder="e.g. 80" min="1"></div>
       <div class="field"><label for="lw">Door width (inches)</label><input type="number" id="lw" placeholder="e.g. 36" min="1"></div>
     </div>
-    <div class="field"><label for="lm">Door construction</label>
-      <select id="lm">
-        <option value="2.5">Hollow-core</option>
-        <option value="6.5" selected>Solid-core</option>
-        <option value="8">Solid hardwood</option>
-        <option value="7">Metal / steel-clad</option>
-        <option value="9">Glass / specialty (heavy)</option>
-      </select><div class="hint">Used to estimate weight. Enter a known weight below to override.</div></div>
+    <div class="row2">
+      <div class="field"><label for="lm">Door construction</label>
+        <select id="lm"><option value="hollow">Hollow-core (interior)</option><option value="solid" selected>Solid-core or solid wood</option><option value="steel">Steel or fiberglass (exterior)</option><option value="fire">Fire-rated / commercial</option></select></div>
+      <div class="field"><label for="lt">Door thickness</label>
+        <select id="lt"><option value="0">1-3/8&Prime; (interior)</option><option value="1" selected>1-3/4&Prime; (standard)</option><option value="2">2&Prime; or thicker</option></select></div>
+    </div>
+    <div class="hint" style="margin:-6px 0 14px">Used to estimate weight. Enter a known weight below to override.</div>
     <div class="field"><label for="lwt">Known weight (lb, optional)</label><input type="number" id="lwt" placeholder="overrides the estimate" min="0"></div>
     <button class="calc-btn" id="lgo">Calculate</button>
+    <div class="calc-err" id="lerr" role="alert"></div>
   </div>
   <div class="result" id="lres">
     <div class="lbl">Estimated door weight</div>
-    <div class="big" id="lbig">, </div>
+    <div class="big" id="lbig"></div>
     <div class="detail" id="ldet"></div>
   </div>
 </div>
 <p style="font-size:13.5px;color:#5a636e;margin-top:6px">These tools give general guidance based on common industry rules of thumb. Always confirm load ratings and sizing against the hinge manufacturer's specifications and your local building code before buying or installing.</p>
 <h2 id="hinge-picks">Our hinge picks</h2><p>Got your number? These are the hinges we recommend from our buying guides.</p><div class="pickcard"><span class="badge">Best for heavy doors</span><h3>Hyever 5&Prime; Stainless Ball-Bearing Hinge, Heavy Duty (2-pack)</h3><p>A 5&Prime; 304 stainless <a href="ball-bearing-hinges.html">ball-bearing hinge</a> for heavy and solid-core doors. Use at least one long screw per jamb hinge into the framing.</p><a class="buybtn" href="https://www.amazon.com/Hyever-SUS304-Stainless-Bearing-Thickness/dp/B07F3ZQG5H" target="_blank" rel="nofollow sponsored noopener">Check price on Amazon &rarr;</a><span class="afftag">Affiliate link, we may earn a commission at no cost to you.</span></div><div class="pickcard"><span class="badge">Best overall</span><h3>TOGU 304 Stainless Ball-Bearing Door Hinge, 4.5&Prime; (3-pack)</h3><p>A true <a href="what-is-304-stainless-steel.html">304 stainless</a> ball-bearing hinge, the right default for most interior and inland exterior doors. The 3-pack covers one standard door.</p><a class="buybtn" href="https://www.amazon.com/Stainless-Bearing-Interior-Residential-Commercial/dp/B0759J3GDQ" target="_blank" rel="nofollow sponsored noopener">Check price on Amazon &rarr;</a><span class="afftag">Affiliate link, we may earn a commission at no cost to you.</span></div><div class="pickcard"><span class="badge alt">Best for coastal</span><h3>Hinge Outlet 316 Marine-Grade Stainless Door Hinge, NRP (3-pack)</h3><p>Genuine 316 <a href="best-marine-grade-hinges.html">marine-grade</a> stainless with a non-removable pin. Use within ~5 miles of salt water. Pair with 316 screws.</p><a class="buybtn" href="https://www.amazon.com/Marine-Grade-Stainless-Steel-Hinges/dp/B07LGD2SLX" target="_blank" rel="nofollow sponsored noopener">Check price on Amazon &rarr;</a><span class="afftag">Affiliate link, we may earn a commission at no cost to you.</span></div>
 <h2>How the estimate works</h2>
-<p>Weight is estimated from door area and a typical weight-per-square-foot for the construction type (hollow-core is light; solid hardwood and glass are heavy). The tool then applies the standard height-based hinge count and checks whether the per-hinge share calls for <a href="ball-bearing-hinges.html">ball-bearing hinges</a>. For anything load-critical, confirm the actual door weight and the hinge's published load rating.</p>
+<p>Weight is estimated from door area and a typical weight-per-square-foot for the construction type and thickness (hollow-core is light; solid-core, steel and fire-rated doors are much heavier). The weight figures come from door manufacturer data and published retail door weights. The tool then applies the standard height-based hinge count and checks whether the per-hinge share calls for <a href="ball-bearing-hinges.html">ball-bearing hinges</a>. For anything load-critical, confirm the actual door weight and the hinge's published load rating.</p>
 <h2>Frequently asked questions</h2><div class="faq"><details><summary>How accurate is the weight estimate?</summary><div class="ans"><p>It's a reasonable ballpark from typical material densities. Actual weight varies with thickness, glass, and hardware, weigh the door for critical jobs.</p></div></details><details><summary>What load rating do I need per hinge?</summary><div class="ans"><p>As a guide, the combined rating of all hinges should comfortably exceed the door weight, with margin. Heavy doors should use ball-bearing hinges rated for the load.</p></div></details></div><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How accurate is the weight estimate?", "acceptedAnswer": {"@type": "Answer", "text": "It's a reasonable ballpark from typical material densities. Actual weight varies with thickness, glass, and hardware, weigh the door for critical jobs."}}, {"@type": "Question", "name": "What load rating do I need per hinge?", "acceptedAnswer": {"@type": "Answer", "text": "As a guide, the combined rating of all hinges should comfortably exceed the door weight, with margin. Heavy doors should use ball-bearing hinges rated for the load."}}]}</script><div class="related"><h4>Related tools & guides</h4><ul><li><a href="door-hinge-calculator.html">Door hinge calculator</a></li><li><a href="best-heavy-duty-hinges.html">Best heavy-duty hinges</a></li><li><a href="how-many-hinges-do-i-need.html">How many hinges do I need?</a></li></ul></div>
 <script>
 (function(){
+  // Approximate door weight in lb per square foot, by construction and thickness (1-3/8", 1-3/4", 2"+).
+  // Sources: door manufacturer weight bulletins and published retail door weights. Estimates only.
+  var PSF={hollow:[1.4,1.8,1.8],solid:[2.6,5.5,6.3],steel:[4.5,4.5,4.5],fire:[8.5,8.5,9.7]};
+  function $(i){return document.getElementById(i);}
+  function err(m){var e=$('lerr');e.textContent=m;e.style.display=m?'block':'none';if(m)$('lres').classList.remove('show');}
   function calc(){
-    var h=parseFloat(document.getElementById('lh').value);
-    var w=parseFloat(document.getElementById('lw').value);
-    var psf=parseFloat(document.getElementById('lm').value);
-    var known=parseFloat(document.getElementById('lwt').value);
-    if(!h||!w){alert('Enter door height and width.');return;}
-    var area=(h/12)*(w/12);
-    var weight = (!isNaN(known)&&known>0) ? known : Math.round(area*psf);
-    var count = h<=60?2: h<=90?3: h<=120?4: 4+Math.ceil((h-120)/30);
-    var perHinge = Math.round(weight/count);
+    var h=parseFloat($('lh').value),w=parseFloat($('lw').value),known=parseFloat($('lwt').value);
+    var psf=PSF[$('lm').value][parseInt($('lt').value,10)];
+    if(isNaN(h)||isNaN(w)){err('Enter the door height and width in inches.');return;}
+    if(h<24||h>144){err('Door height should be between 24″ and 144″. A standard door is 80″ tall.');return;}
+    if(w<12||w>60){err('Door width should be between 12″ and 60″. Most doors are 24–36″ wide.');return;}
+    if(!isNaN(known)&&(known<=0||known>1000)){err('Known weight should be between 1 and 1,000 lb, or leave it blank.');return;}
+    err('');
+    var usingKnown=!isNaN(known)&&known>0;
+    var weight=usingKnown?Math.round(known):Math.round((h/12)*(w/12)*psf);
+    var count=h<=60?2:h<=90?3:h<=120?4:4+Math.ceil((h-120)/30);
+    var perHinge=Math.round(weight/count);
     var notes=[];
-    notes.push('Standard count for this height: <strong>'+count+' hinges</strong> (~'+perHinge+' lb each).');
-    if(weight>=120 || perHinge>=45){ notes.push('Use <strong>ball-bearing</strong> hinges \u2014 plain bearings wear fast at this load.'); }
-    if(weight>=200){ notes.push('Heavy door: consider an extra hinge and long screws into the framing.'); }
+    if(!usingKnown) notes.push('Estimate only. Weigh the door or check the manufacturer’s spec for an exact figure.');
+    notes.push('Standard count for this height: <strong>'+count+' hinges</strong> (~'+perHinge+' lb each on average; the top hinge carries the most).');
+    if(weight>=120||perHinge>=45) notes.push('Use <strong>ball-bearing</strong> hinges. Plain-bearing hinges wear fast at this load.');
+    if(weight>=200) notes.push('Heavy door: consider an extra hinge and long screws into the framing.');
     notes.push('Pick hinges whose combined load rating comfortably exceeds '+weight+' lb, with margin.');
-    document.getElementById('lbig').innerHTML = '~'+weight+' lb';
-    document.getElementById('ldet').innerHTML = notes.map(function(n){return '\u2022 '+n;}).join('<br>');
-    document.getElementById('lres').classList.add('show');
+    $('lbig').innerHTML=(usingKnown?'':'~')+weight+' lb';
+    $('ldet').innerHTML=notes.map(function(n){return '• '+n;}).join('<br>');
+    $('lres').classList.add('show');
   }
-  document.getElementById('lgo').addEventListener('click',calc);
+  $('lgo').addEventListener('click',calc);
+  ['lh','lw','lwt'].forEach(function(i){$(i).addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();calc();}});});
 })();
 </script>
 
@@ -313,7 +326,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 <footer class="site">
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>Independent, spec-first guides to buying and fitting stainless steel hinges.</p></div>
+      <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>An independent resource guide to choosing, sizing and fitting stainless steel hinges.</p></div>
       <div class="foot-cols">
         <div><h4>Guides</h4><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
         <div><h4>Tools</h4><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>

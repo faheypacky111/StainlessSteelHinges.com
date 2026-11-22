@@ -231,6 +231,14 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 }
 @media(max-width:640px){.foot-cols a{padding:7px 0;margin-bottom:0}.foot-cols>div{margin-bottom:10px}.related li a{padding:15px 0}}
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.calcbox .result:not(.show){display:none}
+.calcbox .calc-btn{min-height:48px;font-size:16px;padding:12px 22px;justify-content:center;touch-action:manipulation}
+@media(max-width:640px){.calcbox .calc-btn{width:100%}}
+.calcbox .qopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:6px}
+.calcbox .qopts label{display:flex;align-items:center;gap:10px;margin:0;padding:11px 14px;min-height:48px;border:1px solid var(--line);border-radius:8px;background:var(--surface);font-size:15px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink);cursor:pointer;line-height:1.35}
+.calcbox .qopts label:has(input:checked){border-color:var(--accent);background:var(--accent-tint)}
+.calcbox .qopts input{width:20px;height:20px;margin:0;flex:none;accent-color:var(--accent)}
+.calcbox .big{overflow-wrap:normal;word-break:normal}
 </style>
 
 </head>
@@ -238,7 +246,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 
 <header class="site">
   <div class="nav">
-    <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">Spec-first hinge guides</span></a>
+    <a class="brand" href="index.html"><span class="name">StainlessSteelHinges<b>.com</b></span><span class="tag">The stainless steel hinge resource</span></a>
     <button class="menu-btn" aria-label="Menu">&#8801;</button>
     <nav class="nav-links"><a class="" href="best-stainless-steel-hinges.html">Buying Guides</a><a class="" href="304-vs-316-stainless-steel.html">304 vs 316</a><a class="active" href="door-hinge-calculator.html">Tools</a><a class=" nav-cta" href="how-we-research.html">How we research</a></nav>
   </div>
@@ -282,7 +290,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
   </div>
   <div class="result" id="ares">
     <div class="lbl">Recommended hinge</div>
-    <div class="big" id="abig">, </div>
+    <div class="big" id="abig"></div>
     <div class="detail" id="adet"></div>
   </div>
 </div>
@@ -320,7 +328,7 @@ footer.site{border-top:1px solid var(--line);padding:52px 0 40px;color:var(--mut
 <footer class="site">
   <div class="wrap">
     <div class="foot-top">
-      <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>Independent, spec-first guides to buying and fitting stainless steel hinges.</p></div>
+      <div class="foot-brand"><div class="name">StainlessSteelHinges<b>.com</b></div><p>An independent resource guide to choosing, sizing and fitting stainless steel hinges.</p></div>
       <div class="foot-cols">
         <div><h4>Guides</h4><a href="best-stainless-steel-hinges.html">Buying guides</a><a href="304-vs-316-stainless-steel.html">304 vs 316</a><a href="hinge-sizing-guide.html">Hinge sizing</a></div>
         <div><h4>Tools</h4><a href="door-hinge-calculator.html">Hinge calculator</a><a href="hinge-load-calculator.html">Load calculator</a></div>
